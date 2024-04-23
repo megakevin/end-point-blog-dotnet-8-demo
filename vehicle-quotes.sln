@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.CreateUser", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.Tests", "VehicleQuotes.Tests\VehicleQuotes.Tests.csproj", "{362D9FC7-4557-4EB5-A0C1-6F02B0E46F65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.RazorTemplates", "VehicleQuotes.RazorTemplates\VehicleQuotes.RazorTemplates.csproj", "{1664C7E6-C879-48B1-8F7A-1A21FE3EB704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{362D9FC7-4557-4EB5-A0C1-6F02B0E46F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{362D9FC7-4557-4EB5-A0C1-6F02B0E46F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{362D9FC7-4557-4EB5-A0C1-6F02B0E46F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1664C7E6-C879-48B1-8F7A-1A21FE3EB704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1664C7E6-C879-48B1-8F7A-1A21FE3EB704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1664C7E6-C879-48B1-8F7A-1A21FE3EB704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1664C7E6-C879-48B1-8F7A-1A21FE3EB704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
