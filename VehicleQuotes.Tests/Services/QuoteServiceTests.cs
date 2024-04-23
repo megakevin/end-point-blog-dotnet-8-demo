@@ -32,7 +32,7 @@ namespace VehicleQuotes.Tests.Services
         public async void GetAllQuotesReturnsEmptyWhenThereIsNoDataStored()
         {
             // Given
-            var service = new QuoteService(dbContext, null);
+            var service = new QuoteService(dbContext, null, null);
 
             // When
             var result = await service.GetAllQuotes();
@@ -74,7 +74,7 @@ namespace VehicleQuotes.Tests.Services
 
             dbContext.SaveChanges();
 
-            var service = new QuoteService(dbContext, null);
+            var service = new QuoteService(dbContext, null, null);
 
             // When
             var result = await service.GetAllQuotes();
@@ -91,7 +91,7 @@ namespace VehicleQuotes.Tests.Services
         public async void CalculateQuoteStoresANewQuoteRecord()
         {
             // Given
-            var service = new QuoteService(dbContext, configuration);
+            var service = new QuoteService(dbContext, configuration, null);
 
             var quoteRequest = new QuoteRequest
             {

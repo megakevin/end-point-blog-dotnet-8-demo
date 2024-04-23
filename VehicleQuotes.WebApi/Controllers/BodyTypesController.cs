@@ -28,7 +28,7 @@ namespace VehicleQuotes.WebApi.Controllers
         }
 
         // GET: api/BodyTypes
-        [Authorize(AuthenticationSchemes = AUTH_SCHEMES)]
+        // [Authorize(AuthenticationSchemes = AUTH_SCHEMES)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BodyType>>> GetBodyTypes()
         {

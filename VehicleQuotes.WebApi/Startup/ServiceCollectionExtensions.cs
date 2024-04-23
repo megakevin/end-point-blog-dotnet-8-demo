@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using VehicleQuotes.RazorTemplates.Services;
+using VehicleQuotes.WebApi.Configuration;
 
 namespace VehicleQuotes.WebApi.Startup;
 
@@ -69,5 +71,14 @@ public static class ServiceCollectionExtensions
         services.AddScoped<Services.QuoteService>();
         services.AddScoped<Services.ApiKeyService>();
         services.AddScoped<Services.JwtService>();
+    }
+
+    public static void AddMailerServices(this IServiceCollection services, ConfigurationManager config)
+    {
+        services.Configure<MailSettings>(config.GetSection("MailSettings"));
+        services.AddScoped<Services.QuoteGeneratedMailer>();
+        services.AddMvcCore().AddRazorViewEngine();
+        services.AddTransient<IRazorViewRenderer, RazorViewRenderer>();
+        services.AddTransient<Services.IMailer, Services.Mailer>();
     }
 }

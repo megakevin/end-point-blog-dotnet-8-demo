@@ -30,6 +30,7 @@ builder.Services.AddCustomIdentity();
 builder.Services.AddAuthenticationSchemes(builder.Configuration);
 
 builder.Services.AddAppServices();
+builder.Services.AddMailerServices(builder.Configuration);
 
 var app = builder.Build();
 

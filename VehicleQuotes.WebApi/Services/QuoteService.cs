@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using VehicleQuotes.RazorTemplates.ViewModels;
 using VehicleQuotes.WebApi.Models;
 using VehicleQuotes.WebApi.ResourceModels;
 
@@ -13,11 +9,13 @@ namespace VehicleQuotes.WebApi.Services
     {
         private readonly VehicleQuotesContext _context;
         private readonly IConfiguration _configuration;
+        private readonly QuoteGeneratedMailer _mailer;
 
-        public QuoteService(VehicleQuotesContext context, IConfiguration configuration)
+        public QuoteService(VehicleQuotesContext context, IConfiguration configuration, QuoteGeneratedMailer mailer)
         {
             _context = context;
             _configuration = configuration;
+            _mailer = mailer;
         }
 
         public async Task<List<SubmittedQuoteRequest>> GetAllQuotes()
@@ -92,6 +90,19 @@ namespace VehicleQuotes.WebApi.Services
 
             response.ID = quoteToStore.ID;
             response.CreatedAt = quoteToStore.CreatedAt;
+
+            await _mailer.SendAsync(
+                new QuoteGeneratedViewModel
+                {
+                    ID = response.ID,
+                    CreatedAt = response.CreatedAt,
+                    OfferedQuote = response.OfferedQuote,
+                    Message = response.Message!,
+                    Year = response.Year!,
+                    Make = response.Make!,
+                    Model = response.Model!
+                }
+            );
 
             return response;
         }

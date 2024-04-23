@@ -1,0 +1,12 @@
+@using VehicleQuotes.RazorTemplates.ViewModels
+
+@model QuoteGeneratedViewModel
+
+<p>
+    A quote has been generated for a @Model.Year @Model.Make @Model.Model.
+</p>
+
+<p>Quote ID: @Model.ID</p>
+<p>Created At: @Model.CreatedAt.ToLongDateString()</p>
+<p>Offered Amount: @Model.OfferedQuote</p>
+<p>Message: @Model.Message</p>
