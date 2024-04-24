@@ -35,7 +35,7 @@ namespace VehicleQuotes.WebApi
                 new Size { ID = 1, Name = "Subcompact" },
                 new Size { ID = 2, Name = "Compact" },
                 new Size { ID = 3, Name = "Mid Size" },
-                new Size { ID = 5, Name = "Full Size" }
+                new Size { ID = 4, Name = "Full Size" }
             );
 
             modelBuilder.Entity<BodyType>().HasData(

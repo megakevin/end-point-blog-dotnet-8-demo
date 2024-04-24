@@ -17,6 +17,6 @@ namespace VehicleQuotes.WebApi.Models
         public string UserID { get; set; } = default!;
 
         [JsonIgnore]
-        public required IdentityUser User { get; set; } = default!;
+        public IdentityUser User { get; set; } = default!;
     }
 }

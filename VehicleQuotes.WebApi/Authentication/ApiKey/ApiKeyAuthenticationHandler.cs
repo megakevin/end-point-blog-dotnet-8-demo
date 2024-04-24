@@ -1,10 +1,8 @@
 using System.Security.Claims;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace VehicleQuotes.WebApi.Authentication.ApiKey
@@ -36,7 +34,7 @@ namespace VehicleQuotes.WebApi.Authentication.ApiKey
 
             var apiKey = await _context.UserApiKeys
                 .Include(uak => uak.User)
-                .SingleOrDefaultAsync(uak => uak.Value == apiKeyToValidate);
+                .SingleOrDefaultAsync(uak => uak.Value == apiKeyToValidate.ToString());
 
             if (apiKey == null)
             {
