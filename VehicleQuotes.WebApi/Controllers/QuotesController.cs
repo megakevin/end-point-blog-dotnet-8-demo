@@ -1,6 +1,7 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using VehicleQuotes.WebApi.Authentication.ApiKey;
 using VehicleQuotes.WebApi.ResourceModels;
 using VehicleQuotes.WebApi.Services;
 
@@ -20,6 +21,17 @@ namespace VehicleQuotes.WebApi.Controllers
         // GET: api/Quotes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SubmittedQuoteRequest>>> GetAll()
+        {
+            return await _service.GetAllQuotes();
+        }
+
+        private const string AUTH_SCHEMES =
+            $"{JwtBearerDefaults.AuthenticationScheme},{ApiKeyDefaults.AuthenticationScheme}";
+
+        // GET: api/Quotes/Secure
+        [HttpGet("Secure")]
+        [Authorize(AuthenticationSchemes = AUTH_SCHEMES)]
+        public async Task<ActionResult<IEnumerable<SubmittedQuoteRequest>>> GetAllSecure()
         {
             return await _service.GetAllQuotes();
         }
