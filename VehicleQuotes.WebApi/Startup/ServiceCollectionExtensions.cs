@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using VehicleQuotes.RazorTemplates.Services;
 using VehicleQuotes.WebApi.Configuration;
+using VehicleQuotes.WebApi.Repositories;
 
 namespace VehicleQuotes.WebApi.Startup;
 
@@ -71,6 +72,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<Services.QuoteService>();
         services.AddScoped<Services.ApiKeyService>();
         services.AddScoped<Services.JwtService>();
+        services.AddScoped<IMakeRepository, MakeRepository>();
     }
 
     public static void AddMailerServices(this IServiceCollection services, ConfigurationManager config)
