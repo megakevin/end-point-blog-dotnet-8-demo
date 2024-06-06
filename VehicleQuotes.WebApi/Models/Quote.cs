@@ -38,5 +38,7 @@ namespace VehicleQuotes.WebApi.Models
 
         public BodyType BodyType { get; set; } = default!;
         public Size Size { get; set; } = default!;
+
+        public ICollection<QuoteImage> QuoteImages { get; set; } = [];
     }
 }
