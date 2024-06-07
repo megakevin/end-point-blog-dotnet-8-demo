@@ -1,7 +1,15 @@
+using VehicleQuotes.WebApi.Startup;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddVehicleQuotesDbContext(
+    builder.Configuration.GetConnectionString("VehicleQuotesContext") ??
+        throw new InvalidOperationException("Connection string 'VehicleQuotesContext' not found.")
+);
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
