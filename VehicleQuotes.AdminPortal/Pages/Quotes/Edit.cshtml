@@ -1,0 +1,45 @@
+@page "{id}"
+@model VehicleQuotes.AdminPortal.Pages.Quotes.EditModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Edit</h1>
+
+<h4>Add Images</h4>
+<hr />
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div id="quote-images-container" class="row">
+            <div class="col-3 mb-3">
+                <input type="file" accept="image/*" id="ImageFiles_0" name="ImageFiles" class="form-control">
+            </div>
+
+            <div class="col-3 mb-3">
+                <input type="file" accept="image/*" id="ImageFiles_1" name="ImageFiles" class="form-control">
+            </div>
+
+            <div class="col-3 mb-3">
+                <input type="file" accept="image/*" id="ImageFiles_2" name="ImageFiles"  class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <button
+                type="submit"
+                asp-page-handler="Save"
+                class="btn btn-primary"
+            >
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <a asp-page="./Index">Back to List</a>
+</div>
