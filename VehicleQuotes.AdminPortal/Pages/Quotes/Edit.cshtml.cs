@@ -51,6 +51,7 @@ public class EditModel : PageModel
 
         if (!ModelState.IsValid)
         {
+            Quote = quote;
             return Page();
         }
 
@@ -93,6 +94,8 @@ public class EditModel : PageModel
 
     private async Task<Quote?> FindQuote(int id) =>
         await _context.Quotes
+            .Include(m => m.BodyType)
+            .Include(m => m.Size)
             .Include(m => m.QuoteImages)
             .FirstOrDefaultAsync(m => m.ID == id);
 
