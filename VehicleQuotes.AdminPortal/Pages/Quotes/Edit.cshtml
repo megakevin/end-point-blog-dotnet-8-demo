@@ -14,19 +14,7 @@
     <form method="post" enctype="multipart/form-data">
         <div asp-validation-summary="All" class="text-danger"></div>
 
-        <div id="quote-images-container" class="row">
-            <div class="col-3 mb-3">
-                <input type="file" accept="image/*" id="ImageFiles_0" name="ImageFiles" class="form-control">
-            </div>
-
-            <div class="col-3 mb-3">
-                <input type="file" accept="image/*" id="ImageFiles_1" name="ImageFiles" class="form-control">
-            </div>
-
-            <div class="col-3 mb-3">
-                <input type="file" accept="image/*" id="ImageFiles_2" name="ImageFiles"  class="form-control">
-            </div>
-        </div>
+        <partial name="_NewImages.cshtml" />
 
         <div class="form-group mb-3">
             <button
@@ -43,3 +31,7 @@
 <div class="row">
     <a asp-page="./Index">Back to List</a>
 </div>
+
+@section scripts {
+    <script src="~/js/quotes.new-images.js" asp-append-version="true"></script>
+}
