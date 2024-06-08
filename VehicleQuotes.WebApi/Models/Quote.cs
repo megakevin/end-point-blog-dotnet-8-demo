@@ -40,5 +40,8 @@ namespace VehicleQuotes.WebApi.Models
         public Size Size { get; set; } = default!;
 
         public ICollection<QuoteImage> QuoteImages { get; set; } = [];
+
+        public QuoteImage? GetImageById(int imageId) =>
+            QuoteImages.FirstOrDefault(i => i.ID == imageId);
     }
 }

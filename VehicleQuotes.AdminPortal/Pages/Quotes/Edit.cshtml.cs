@@ -68,6 +68,29 @@ public class EditModel : PageModel
         return RedirectToPage("./Edit", new { Id = id });
     }
 
+    public async Task<IActionResult> OnPostDeleteImageAsync(int id, int imageId)
+    {
+        var quote = await FindQuote(id);
+
+        if (quote == null)
+        {
+            return NotFound();
+        }
+
+        var imageToDelete = quote.GetImageById(imageId);
+
+        if (imageToDelete == null)
+        {
+            return NotFound();
+        }
+
+        DeleteImageFile(imageToDelete.FileName);
+        _context.QuoteImages.Remove(imageToDelete);
+        await _context.SaveChangesAsync();
+
+        return RedirectToPage("./Edit", new { Id = id });
+    }
+
     private async Task<Quote?> FindQuote(int id) =>
         await _context.Quotes
             .Include(m => m.QuoteImages)
@@ -83,5 +106,11 @@ public class EditModel : PageModel
         await fileToSave.CopyToAsync(stream);
 
         return fileName;
+    }
+
+    private void DeleteImageFile(string fileName)
+    {
+        var filePath = Path.Combine(_imagesPath, fileName);
+        System.IO.File.Delete(filePath);
     }
 }

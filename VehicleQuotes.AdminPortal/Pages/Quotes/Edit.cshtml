@@ -21,6 +21,16 @@
                 class="mx-auto d-block w-75"
             />
 
+            <form method="post">
+                <button
+                    type="submit"
+                    asp-page-handler="DeleteImage"
+                    asp-route-imageId="@image.ID"
+                    class="btn btn-outline-danger mx-auto d-block"
+                >
+                    Delete
+                </button>
+            </form>
         </div>
     }
 </div>
