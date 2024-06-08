@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using VehicleQuotes.AdminPortal.Validation;
 using VehicleQuotes.WebApi;
 using VehicleQuotes.WebApi.Models;
 
@@ -19,6 +20,8 @@ public class EditModel : PageModel
     }
 
     [BindProperty]
+    [AllFilesAreNotEmpty]
+    [AllFilesHaveImageFileExtension]
     public IEnumerable<IFormFile>? ImageFiles { get; set; }
 
     public IActionResult OnGet(int id) => Page();
@@ -30,6 +33,11 @@ public class EditModel : PageModel
         if (quote == null)
         {
             return NotFound();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return Page();
         }
 
         if (ImageFiles is not null)
