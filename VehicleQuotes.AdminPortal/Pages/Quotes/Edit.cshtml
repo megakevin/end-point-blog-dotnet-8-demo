@@ -7,6 +7,24 @@
 
 <h1>Edit</h1>
 
+<h4>Existing Images</h4>
+<hr />
+
+<div class="row mb-4">
+    @foreach (var image in Model.Quote.QuoteImages)
+    {
+        <div class="col-3">
+            <img
+                src="@image.Url"
+                asp-append-version="true"
+                alt="Quote image"
+                class="mx-auto d-block w-75"
+            />
+
+        </div>
+    }
+</div>
+
 <h4>Add Images</h4>
 <hr />
 

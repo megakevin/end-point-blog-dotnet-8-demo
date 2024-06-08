@@ -7,4 +7,6 @@ public class QuoteImage
 
     public int QuoteId { get; set; }
     public Quote Quote { get; set; } = default!;
+
+    public string Url => $"~/uploads/{FileName}";
 }

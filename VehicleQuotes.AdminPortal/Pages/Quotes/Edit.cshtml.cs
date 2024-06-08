@@ -19,12 +19,26 @@ public class EditModel : PageModel
             throw new InvalidOperationException("Config setting 'QuoteImagesPath' not found.");
     }
 
+    public Quote Quote { get; set; } = default!;
+
     [BindProperty]
     [AllFilesAreNotEmpty]
     [AllFilesHaveImageFileExtension]
     public IEnumerable<IFormFile>? ImageFiles { get; set; }
 
-    public IActionResult OnGet(int id) => Page();
+    public async Task<IActionResult> OnGetAsync(int id)
+    {
+        var quote = await FindQuote(id);
+
+        if (quote == null)
+        {
+            return NotFound();
+        }
+
+        Quote = quote;
+
+        return Page();
+    }
 
     public async Task<IActionResult> OnPostSaveAsync(int id)
     {
@@ -56,6 +70,7 @@ public class EditModel : PageModel
 
     private async Task<Quote?> FindQuote(int id) =>
         await _context.Quotes
+            .Include(m => m.QuoteImages)
             .FirstOrDefaultAsync(m => m.ID == id);
 
     private async Task<string> SaveImageFile(IFormFile fileToSave)
