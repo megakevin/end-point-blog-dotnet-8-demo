@@ -24,6 +24,7 @@ namespace VehicleQuotes.WebApi
         public DbSet<QuoteOverride> QuoteOverides { get; set; }
 
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<QuoteImage> QuoteImages { get; set; }
 
         public DbSet<UserApiKey> UserApiKeys { get; set; }
 
