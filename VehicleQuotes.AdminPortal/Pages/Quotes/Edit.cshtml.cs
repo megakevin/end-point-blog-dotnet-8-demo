@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using VehicleQuotes.AdminPortal.Validation;
-using VehicleQuotes.WebApi;
-using VehicleQuotes.WebApi.Models;
+using VehicleQuotes.Core.Validation;
+using VehicleQuotes.Core.Data;
+using VehicleQuotes.Core.Models;
 
 namespace VehicleQuotes.AdminPortal.Pages.Quotes;
 

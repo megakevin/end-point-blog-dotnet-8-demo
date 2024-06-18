@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using VehicleQuotes.WebApi.Startup;
+using VehicleQuotes.Core.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 

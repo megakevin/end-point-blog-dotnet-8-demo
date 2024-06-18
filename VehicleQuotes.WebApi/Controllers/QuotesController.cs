@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VehicleQuotes.WebApi.Authentication.ApiKey;
-using VehicleQuotes.WebApi.ResourceModels;
-using VehicleQuotes.WebApi.Services;
+using VehicleQuotes.Core.Authentication.ApiKey;
+using VehicleQuotes.Core.Services;
 
 namespace VehicleQuotes.WebApi.Controllers
 {

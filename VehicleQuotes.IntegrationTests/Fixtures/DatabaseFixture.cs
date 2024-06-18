@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using VehicleQuotes.WebApi;
+using VehicleQuotes.Core.Data;
 
 namespace VehicleQuotes.IntegrationTests.Fixtures;
 

@@ -3,10 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using CommandLine;
-using VehicleQuotes.WebApi;
-using VehicleQuotes.WebApi.Startup;
-using VehicleQuotes.WebApi.Services;
 using VehicleQuotes.CreateUser;
+using VehicleQuotes.Core.Startup;
 
 void Run(CliOptions options)
 {

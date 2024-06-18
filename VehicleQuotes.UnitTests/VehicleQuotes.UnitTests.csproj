@@ -22,6 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VehicleQuotes.WebApi\VehicleQuotes.WebApi.csproj" />
+    <ProjectReference Include="..\VehicleQuotes.Core\VehicleQuotes.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using VehicleQuotes.WebApi;
+using VehicleQuotes.Core.Data;
 
 namespace VehicleQuotes.IntegrationTests.Fixtures;
 

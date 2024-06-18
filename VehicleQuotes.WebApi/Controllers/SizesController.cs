@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using VehicleQuotes.WebApi;
-using VehicleQuotes.WebApi.Models;
+using VehicleQuotes.Core.Data;
+using VehicleQuotes.Core.Models;
 
 namespace VehicleQuotes.WebApi.Controllers
 {

@@ -3,9 +3,9 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using VehicleQuotes.Core.Models;
+using VehicleQuotes.Core.Services;
 using VehicleQuotes.IntegrationTests.Fixtures;
-using VehicleQuotes.WebApi.Models;
-using VehicleQuotes.WebApi.ResourceModels;
 
 namespace GifBackend.IntegrationTests.WebApi.Controllers;
 
@@ -102,7 +102,7 @@ public class QuotesControllerTests : BaseIntegrationTestSuite
 
             await RegisterUser(client);
             var response = await Login(client);
-            var authResponse = await response.Content.ReadFromJsonAsync<AuthenticationResponse>();
+            var authResponse = await response.Content.ReadFromJsonAsync<UserJwt>();
 
             Assert.NotNull(authResponse);
 

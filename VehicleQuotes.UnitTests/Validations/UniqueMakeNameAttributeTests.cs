@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using Moq;
-using VehicleQuotes.WebApi.Models;
-using VehicleQuotes.WebApi.Repositories;
-using VehicleQuotes.WebApi.Validation;
+using VehicleQuotes.Core.Models;
+using VehicleQuotes.Core.Repositories;
+using VehicleQuotes.Core.Validation;
 
-namespace GifBackend.UnitTests.Domain.Validation;
+namespace GifBackend.UnitTests.Validation;
 
 public class UniqueMakeNameAttributeTests
 {

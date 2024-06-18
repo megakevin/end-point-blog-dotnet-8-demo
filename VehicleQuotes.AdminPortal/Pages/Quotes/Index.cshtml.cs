@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using VehicleQuotes.WebApi;
-using VehicleQuotes.WebApi.Models;
+using VehicleQuotes.Core.Data;
+using VehicleQuotes.Core.Models;
 
 namespace VehicleQuotes.AdminPortal.Pages.Quotes;
 

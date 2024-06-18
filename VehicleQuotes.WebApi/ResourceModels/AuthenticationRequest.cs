@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace VehicleQuotes.WebApi.ResourceModels
+namespace VehicleQuotes.WebApi.ResourceModels;
+
+public class AuthenticationRequest
 {
-    public class AuthenticationRequest
-    {
-        [Required]
-        public required string UserName { get; set; }
-        [Required]
-        public required string Password { get; set; }
-    }
+    [Required]
+    public required string UserName { get; set; }
+    [Required]
+    public required string Password { get; set; }
 }

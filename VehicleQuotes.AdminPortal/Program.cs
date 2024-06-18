@@ -1,4 +1,4 @@
-using VehicleQuotes.WebApi.Startup;
+using VehicleQuotes.Core.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 

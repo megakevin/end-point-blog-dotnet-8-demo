@@ -23,3 +23,7 @@ select * from public.quotes;
 
 TRUNCATE public.body_types, public.sizes, public.quotes, public.quote_overides, public.model_style_years, public.model_styles RESTART IDENTITY;
 
+select * from "AspNetUsers";
+select * from public.user_api_keys;
+
+select * from public.quote_images;

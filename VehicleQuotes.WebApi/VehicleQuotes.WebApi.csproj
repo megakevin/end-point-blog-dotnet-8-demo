@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VehicleQuotes.RazorTemplates\VehicleQuotes.RazorTemplates.csproj" />
+    <ProjectReference Include="..\VehicleQuotes.Core\VehicleQuotes.Core.csproj" />
   </ItemGroup>
 
 </Project>

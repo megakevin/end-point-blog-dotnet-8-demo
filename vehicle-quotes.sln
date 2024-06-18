@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.UnitTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.AdminPortal", "VehicleQuotes.AdminPortal\VehicleQuotes.AdminPortal.csproj", "{8375FF09-47DB-48B5-8777-8A89C145BC74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleQuotes.Core", "VehicleQuotes.Core\VehicleQuotes.Core.csproj", "{D20E8502-868F-4D39-82DB-8B8A0E6BA6C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{8375FF09-47DB-48B5-8777-8A89C145BC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8375FF09-47DB-48B5-8777-8A89C145BC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8375FF09-47DB-48B5-8777-8A89C145BC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D20E8502-868F-4D39-82DB-8B8A0E6BA6C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20E8502-868F-4D39-82DB-8B8A0E6BA6C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20E8502-868F-4D39-82DB-8B8A0E6BA6C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20E8502-868F-4D39-82DB-8B8A0E6BA6C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
