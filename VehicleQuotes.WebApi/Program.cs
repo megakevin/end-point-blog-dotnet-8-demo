@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using VehicleQuotes.Core.Startup;
@@ -6,6 +7,13 @@ using VehicleQuotes.Core.Startup;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddDataProtection().PersistKeysToFileSystem(
+    new DirectoryInfo(
+        builder.Configuration["WebApiDataProtectionKeysPath"] ??
+            throw new InvalidOperationException("Config setting 'WebApiDataProtectionKeysPath' not found.")
+    )
+);
 
 builder.Services.AddSwaggerGen(c =>
 {

@@ -1,9 +1,17 @@
+using Microsoft.AspNetCore.DataProtection;
 using VehicleQuotes.Core.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDataProtection().PersistKeysToFileSystem(
+    new DirectoryInfo(
+        builder.Configuration["AdminPortalDataProtectionKeysPath"] ??
+            throw new InvalidOperationException("Config setting 'AdminPortalDataProtectionKeysPath' not found.")
+    )
+);
 
 builder.Services.AddVehicleQuotesDbContext(
     builder.Configuration.GetConnectionString("VehicleQuotesContext") ??
