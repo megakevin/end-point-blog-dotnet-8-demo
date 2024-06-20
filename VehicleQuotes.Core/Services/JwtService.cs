@@ -21,29 +21,28 @@ public class JwtService
     public UserJwt CreateToken(IdentityUser user)
     {
         var expiration = DateTime.UtcNow.AddMinutes(EXPIRATION_MINUTES);
-
-        var token = CreateJwtToken(
-            CreateClaims(user),
-            CreateSigningCredentials(),
-            expiration
-        );
-
         var tokenHandler = new JwtSecurityTokenHandler();
 
-        return new UserJwt {
+        var token = tokenHandler.CreateToken(
+            CreateTokenDescriptor(user, expiration)
+        );
+
+        return new UserJwt
+        {
             Token = tokenHandler.WriteToken(token),
             Expiration = expiration
         };
     }
 
-    private JwtSecurityToken CreateJwtToken(Claim[] claims, SigningCredentials credentials, DateTime expiration) =>
-        new (
-            _configuration["Jwt:Issuer"],
-            _configuration["Jwt:Audience"],
-            claims,
-            expires: expiration,
-            signingCredentials: credentials
-        );
+    private SecurityTokenDescriptor CreateTokenDescriptor(IdentityUser user, DateTime expiration) =>
+        new()
+        {
+            Issuer = _configuration["Jwt:Issuer"],
+            Audience = _configuration["Jwt:Audience"],
+            Subject = new ClaimsIdentity(CreateClaims(user)),
+            Expires = expiration,
+            SigningCredentials = CreateSigningCredentials()
+        };
 
     private Claim[] CreateClaims(IdentityUser user) =>
         [
@@ -54,9 +53,9 @@ public class JwtService
             ),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Id),
-            new Claim(ClaimTypes.Name, user.UserName!),
-            new Claim(ClaimTypes.Email, user.Email!)
+            new Claim(JwtRegisteredClaimNames.NameId, user.Id),
+            new Claim(JwtRegisteredClaimNames.Name, user.UserName!),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email!)
         ];
 
     private SigningCredentials CreateSigningCredentials() =>
