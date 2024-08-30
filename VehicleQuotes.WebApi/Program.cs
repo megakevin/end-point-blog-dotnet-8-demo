@@ -42,12 +42,14 @@ builder.Services.AddMailerServices(builder.Configuration);
 
 var app = builder.Build();
 
+app.UsePathBase("/api");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI(c => {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "VehicleQuotes v1");
+        c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "VehicleQuotes v1");
         c.RoutePrefix = "swagger";
     });
 }

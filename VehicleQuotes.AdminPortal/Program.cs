@@ -22,6 +22,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
+app.UsePathBase("/admin");
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
